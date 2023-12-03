@@ -35,9 +35,6 @@
                                 {{ movie.duration }} | {{ movie.genre.join(' | ') }}
                             </h5>
                             <div class="buttons">
-                                <a mat-button color="accent" [style.textDecoration]="'none'">
-                                    Trailer
-                                </a>
                                 <a [style.textDecoration]="'none'"
                                     [routerLink]="['/' + movie.movieId + '/details']"  
                                     mat-button color="accent">

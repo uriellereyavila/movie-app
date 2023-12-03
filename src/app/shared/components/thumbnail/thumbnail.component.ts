@@ -21,6 +21,10 @@ export class ThumbnailComponent implements OnInit {
     
   }
 
+  get defaultImg () {
+    return this.movieService.defaultImage
+  }
+
   getMovieImg(title: string) {
     return this.movieService.getMovieImage(title)
   }

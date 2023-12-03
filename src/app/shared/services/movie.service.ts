@@ -8,6 +8,7 @@ import { Observable, map } from 'rxjs';
 })
 export class MovieService {
   private watchListKey: string = 'movieWatchList'
+  public defaultImage: string = 'https://cdn.iconscout.com/icon/premium/png-256-thumb/movie-poster-1-736318.png'
   constructor(private http: HttpClient) {
   }
 

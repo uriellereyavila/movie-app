@@ -4,6 +4,7 @@
         [style.cursor]="'pointer'" 
         mat-card-image 
         [src]="getMovieImg(movie.image)" 
+        (error)="defaultImg"
         [alt]="movie.title">
     <mat-card-header class="d-flex w-100">
         <mat-card-subtitle class="d-flex align-items-center">
@@ -28,15 +29,9 @@
             <a 
                 class="w-100"
                 [routerLink]="['/' + movie.movieId + '/details']" 
-                mat-button color="accent">
-                <mat-icon>play_arrow</mat-icon>
-                Trailer
-            </a>
-            <a 
-                [routerLink]="['/' + movie.movieId + '/details']" 
-                mat-icon-button color="accent"
+                mat-button color="accent"
                 matTooltip="View details">
-                <mat-icon>info</mat-icon>
+                View details
             </a>
         </div>
     </mat-card-actions>
