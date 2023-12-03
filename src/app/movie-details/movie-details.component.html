@@ -32,13 +32,13 @@
     <div class="container movie-body mb-5">
         <mat-card class="mb-3 mat-elevation-z8">
             <mat-card-content>
-                <div class="d-flex flex-row justify-content-between w-100 align-items-center">
-                    <h4 class="text-bold mb-0">Watch now or later?</h4>
-                    <button (click)="addToWatchList()" mat-raised-button color="primary" *ngIf="!isMovieWatchList()">
+                <div class="d-flex flex-row justify-content-between w-100 align-items-center flex-wrap">
+                    <h4 class="text-bold mb-3">Watch now or later?</h4>
+                    <button (click)="addToWatchList()" class="w-100" style="max-width: 177px;" mat-raised-button color="primary" *ngIf="!isMovieWatchList()">
                         <mat-icon>add</mat-icon>
                         Add to watchlist
                     </button>
-                    <button mat-button color="accent" *ngIf="isMovieWatchList()" (click)="removeWatchList();">
+                    <button mat-button color="accent" class="w-100" *ngIf="isMovieWatchList()" (click)="removeWatchList();">
                         <mat-icon>delete</mat-icon>
                         Remove to watchlist
                     </button>

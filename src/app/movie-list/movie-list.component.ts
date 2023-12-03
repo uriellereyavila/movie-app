@@ -6,6 +6,7 @@ import { Sort } from '../shared/enums/sort.enum';
 import { SortDirection } from '../shared/enums/sort-direction.enum';
 import { SortBy } from '../shared/models/sortby.model';
 import { ViewType } from '../shared/enums/viewtype.enum';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-list',
@@ -25,7 +26,10 @@ export class MovieListComponent implements OnInit {
     direction: SortDirection.ASCENDING
   }
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+      private movieService: MovieService,
+      private snackbar: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -77,5 +81,15 @@ export class MovieListComponent implements OnInit {
 
   addToWatchlist() {
     this.refreshData();
+  }
+
+  removeWatchList() {
+    this.snackbar.open('Successfully removed from watchlist', 'close', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom'
+    })
+    
+    this.refreshData()
   }
 }

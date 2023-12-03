@@ -30,10 +30,13 @@
                                 <mat-icon class="star-rate">star</mat-icon>
                                 {{ movie.rating | oneDecimalPlace }}
                             </h5>
-                            <h5 class="sub-text d-flex align-items-center mb-0">
-                                <mat-icon>timer</mat-icon>
-                                {{ movie.duration }} | {{ movie.genre.join(' | ') }}
-                            </h5>
+                            <div class="d-flex flex-wrap align-items-center gap-1">
+                                <h5 class="sub-text d-flex align-items-center mb-0">
+                                    <mat-icon>timer</mat-icon>
+                                    {{ movie.duration }}
+                                </h5>
+                                <h5 class="mb-0">{{ movie.genre.join(' | ') }}</h5>
+                            </div>
                             <div class="buttons">
                                 <a [style.textDecoration]="'none'"
                                     [routerLink]="['/' + movie.movieId + '/details']"  
@@ -43,7 +46,13 @@
                             </div>
                         </div>
                         <div class="actions">
-                            <button color="accent" 
+                            <button color="primary" *ngIf="!isMovieWatchList(movie.movieId)"
+                                mat-icon-button 
+                                matTooltip="Add to watchlist"
+                                (click)="addToWatchList(movie.movieId)">
+                                <mat-icon>bookmark</mat-icon>
+                            </button>
+                            <button color="accent" *ngIf="isMovieWatchList(movie.movieId)"
                                 mat-icon-button 
                                 matTooltip="Remove from watchlist"
                                 (click)="removeWatchList(movie.movieId)">
