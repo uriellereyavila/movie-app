@@ -39,7 +39,7 @@ export class MovieService {
   }
 
   getMovieImage(title: string) {
-    return `/assets/images/${title}`
+    return `assets/images/${title}`
   }
 
   private updateWatchlist(watchlist: string[]): void {
